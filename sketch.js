@@ -22,6 +22,11 @@ let syojikinTarinaiFlag = false;
 let loan = 0;
 //借金中か
 let loaning = false;
+//ざわざわの時間
+let zawaTime = 0;
+//ざわざわの座標
+let zawaYoko;
+let zawaTate;
 //どのベットボタンが押されたか
 let WhichPressedButton;
 // 丁か半か判定して表示
@@ -78,7 +83,7 @@ function setup(){
     buttonRetry.size(200, 100);
     buttonRetry.mouseReleased(syakkinnSuru);
     //フレームレート
-    frameRate(120);
+    frameRate(60);
 }
 
 function bet1() {
@@ -364,6 +369,29 @@ function draw(){
     square(30,30,200);
     square(240,30,200);
     square(450,30,200);
+
+    //ざわざわ表示
+    if(millis() > zawaTime){        
+        //塗りつぶしは黒色に
+        fill("#000000");
+        textSize(32);
+        zawaYoko = random(20,600);
+        zawaTate = random(20,500);
+        text("ざわ…",zawaYoko,zawaTate);
+        //塗りつぶしは白色に
+        fill("#FFFFFF");
+        textSize(150);
+        zawaTime = millis() + 1500;
+    }else{        
+        //塗りつぶしは黒色に
+        fill("#000000");
+        textSize(32);
+        text("ざわ…",zawaYoko,zawaTate);
+        //塗りつぶしは白色に
+        fill("#FFFFFF");
+        textSize(150);
+    }
+
 
     //点数
     //塗りつぶしは黒色に
