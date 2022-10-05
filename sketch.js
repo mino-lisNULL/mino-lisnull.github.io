@@ -373,10 +373,10 @@ function draw(){
     //ざわざわ表示
     if(millis() > zawaTime){        
         //塗りつぶしは黒色に
-        fill("#000000");
+        fill(100);
         textSize(32);
-        zawaYoko = random(20,600);
-        zawaTate = random(20,500);
+        zawaYoko = random(50,600);
+        zawaTate = random(50,500);
         text("ざわ…",zawaYoko,zawaTate);
         //塗りつぶしは白色に
         fill("#FFFFFF");
