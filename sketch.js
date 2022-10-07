@@ -23,10 +23,16 @@ let loan = 0;
 //借金中か
 let loaning = false;
 //ざわざわの時間
-let zawaTime = 0;
+let zawaTime1 = 0;
+let zawaTime2 = 375;
 //ざわざわの座標
-let zawaYoko;
-let zawaTate;
+let zawaYoko1;
+let zawaTate1;
+let zawaYoko2;
+let zawaTate2;
+//ざわざわのアルファ値
+let zawaAlpha1 = 255;
+let zawaAlpha2 = 255;
 //どのベットボタンが押されたか
 let WhichPressedButton;
 // 丁か半か判定して表示
@@ -50,6 +56,8 @@ function tyohan(a,b,c) {
 function setup(){
     //表示するキャンバスを全画面に
     createCanvas(windowWidth,windowHeight);
+    //HSBモードでの色指定に変更
+    //colorMode(HSB, 360, 100, 100, 100);
 
     //文字の基準点を上下左右の中央に
     textAlign(CENTER, CENTER);
@@ -363,35 +371,10 @@ function syakkinnSuru(){
 function draw(){
     //背景を白色に
     background("#FFFFFF");
-    //境界線は黒色に
-    stroke("#000000");
 
     square(30,30,200);
     square(240,30,200);
     square(450,30,200);
-
-    //ざわざわ表示
-    if(millis() > zawaTime){        
-        //塗りつぶしは黒色に
-        fill(100);
-        textSize(32);
-        zawaYoko = random(50,600);
-        zawaTate = random(50,500);
-        text("ざわ…",zawaYoko,zawaTate);
-        //塗りつぶしは白色に
-        fill("#FFFFFF");
-        textSize(150);
-        zawaTime = millis() + 1500;
-    }else{        
-        //塗りつぶしは黒色に
-        fill("#000000");
-        textSize(32);
-        text("ざわ…",zawaYoko,zawaTate);
-        //塗りつぶしは白色に
-        fill("#FFFFFF");
-        textSize(150);
-    }
-
 
     //点数
     //塗りつぶしは黒色に
@@ -421,6 +404,8 @@ function draw(){
     fill("#FFFFFF");
     textSize(150);
     }
+    //境界線は黒色に
+    //stroke("#000000");
 
     if(syojikinTarinaiFlag == false){
 //選ばれた項目の表示
@@ -1013,6 +998,55 @@ if(diceResult1 == 1 && diceResult2 == 1 && diceResult3 == 1){
 }
     }else{
         syojikinTarinai();
+    }
+    //ざわざわ表示
+    //ざわ一個目
+    if(millis() > zawaTime1){  
+        if((zawaAlpha1 <= 0 )){  
+               zawaAlpha1 = 255;      
+        }      
+        //塗りつぶしは黒色に
+        fill(96);
+        textSize(32);
+        zawaYoko1 = random(50,600);
+        zawaTate1 = random(50,500);
+        text("ざわ…",zawaYoko1,zawaTate1);
+        //塗りつぶしは白色に
+        fill("#FFFFFF");
+        textSize(150);
+        zawaTime1 = millis() + 1500;
+    }else{        
+        fill(96,96,96,zawaAlpha1);
+        textSize(32);
+        text("ざわ…",zawaYoko1,zawaTate1);
+        //塗りつぶしは白色に
+        fill("#FFFFFF");
+        textSize(150);
+        zawaAlpha1 -= 2.94;           
+    }
+    //ざわ2個目
+    if(millis() > zawaTime2){  
+        if((zawaAlpha2 <= 0 )){  
+               zawaAlpha2 = 255;      
+        }      
+        //塗りつぶしは黒色に
+        fill(96);
+        textSize(32);
+        zawaYoko2 = random(50,600);
+        zawaTate2 = random(50,500);
+        text("ざわ…",zawaYoko2,zawaTate2);
+        //塗りつぶしは白色に
+        fill("#FFFFFF");
+        textSize(150);
+        zawaTime2 = millis() + 1500;
+    }else{        
+        fill(96,96,96,zawaAlpha2);
+        textSize(32);
+        text("ざわ…",zawaYoko2,zawaTate2);
+        //塗りつぶしは白色に
+        fill("#FFFFFF");
+        textSize(150);
+        zawaAlpha2 -= 2.94;           
     }
     
     //最高得点を更新
