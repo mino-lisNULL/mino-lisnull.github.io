@@ -1,8 +1,10 @@
 @media(max-width:1000px){
 
 }
-@media(max-width:670px){
-  
+@media(max-width:670px){  
+#fixed-header2{
+  left: 100%;  
+}
 }
 html {
   scroll-behavior: smooth;
