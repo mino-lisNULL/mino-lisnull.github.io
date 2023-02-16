@@ -1,1 +1,0 @@
-# mino-lisnull.github.io
