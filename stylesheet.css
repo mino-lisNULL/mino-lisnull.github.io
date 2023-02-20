@@ -1,67 +1,3 @@
-@media(max-width:1000px){
-  img{
-    width: 67%;
-    height: auto;
-  }
-  #fixed-header4{
-    z-index:10;
-    position: fixed;
-    bottom:-150px;
-    right: 0px;  
-    width: 25%;
-    height: auto;
-    transition: 0.5s; /* アニメーションタイミング */
-  }
-  #fixed-header4.is-show4 {
-    bottom:0px;
-    right: 0px;  
-    width: 25%;
-    height: auto;
-  }
-}
-@media(max-width:670px){  
-  img{
-    width: 67%;
-    height: auto;
-  }
-  #fixed-header{
-    z-index:11;
-    position: fixed;
-    top:0px;
-    left: 0;  
-    width:100%;
-    height: 70px;
-    line-height: 70px;
-    font-size: 1em;
-    text-align: center;
-    color: #fff;
-    box-sizing: border-box;
-    transition: 0.5s; /* アニメーションタイミング */
-  }
-  #fixed-header.is-show {
-    left: 0;  
-    width:100%;
-    top:0px;
-    font-size: 0.8em;
-    height: 56px;
-    color: rgba(255, 255, 255, 0.1);;
-  }
-  #fixed-header4{
-    z-index:10;
-    position: fixed;
-    bottom:-150px;
-    right: 0px;  
-    width: 33%;
-    height: auto;
-    transition: 0.5s; /* アニメーションタイミング */
-  }
-  #fixed-header4.is-show4 {
-    bottom:45%;
-    right: 0px;  
-    width: 33%;
-    height: auto;
-  }
-}
 html {
   scroll-behavior: smooth;
 }
@@ -363,4 +299,68 @@ details {
   .footer-list{
     color:white;
 
+  }
+  @media(max-width:1000px){
+    img{
+      width: 67%;
+      height: auto;
+    }
+    #fixed-header4{
+      z-index:10;
+      position: fixed;
+      bottom:-150px;
+      right: 0px;  
+      width: 25%;
+      height: auto;
+      transition: 0.5s; /* アニメーションタイミング */
+    }
+    #fixed-header4.is-show4 {
+      bottom:0px;
+      right: 0px;  
+      width: 25%;
+      height: auto;
+    }
+  }
+  @media(max-width:670px){  
+    img{
+      width: 67%;
+      height: auto;
+    }
+    #fixed-header{
+      z-index:11;
+      position: fixed;
+      top:0px;
+      left: 0;  
+      width:100%;
+      height: 70px;
+      line-height: 70px;
+      font-size: 1em;
+      text-align: center;
+      color: #fff;
+      box-sizing: border-box;
+      transition: 0.5s; /* アニメーションタイミング */
+    }
+    #fixed-header.is-show {
+      left: 0;  
+      width:100%;
+      top:0px;
+      font-size: 0.8em;
+      height: 56px;
+      color: rgba(255, 255, 255, 0.1);;
+    }
+    #fixed-header4{
+      z-index:10;
+      position: fixed;
+      bottom:-150px;
+      right: 0px;  
+      width: 33%;
+      height: auto;
+      transition: 0.5s; /* アニメーションタイミング */
+    }
+    #fixed-header4.is-show4 {
+      bottom:45%;
+      right: 0px;  
+      width: 33%;
+      height: auto;
+    }
   }
