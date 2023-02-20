@@ -49,6 +49,7 @@ header{
   right: 0; 
   width:auto;
   margin-top:0px;
+  margin-bottom:0px;
   height: 70px;
   line-height: 70px;
   font-size: 2em;
@@ -137,6 +138,7 @@ h2{
   font-size: 1.6em;
   height: 56px;
   margin-top:15px;
+  margin-bottom:0px;
 }
 #fixed-header3.is-show3 {
   width: 100%;
@@ -355,6 +357,7 @@ details {
       right: 0; 
       width:auto;
       margin-top:0px;
+      padding-bottom:0px;
       height: 70px;
       line-height: 70px;
       font-size: 1em;
@@ -369,6 +372,7 @@ details {
       font-size: 0.8em;
       height: 56px;
       margin-top:15px;
+      padding-bottom:0px;
     }
     #fixed-header4{
       z-index:10;
