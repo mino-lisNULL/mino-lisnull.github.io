@@ -4,9 +4,9 @@ $(function(){
 			//ターゲットの位置を取得
 			var target = $(this).offset().top;
 			//スクロール量を取得
-			var scroll = $(window).scrollTop();
+			var scroll = $(document).scrollTop();
 			//ウィンドウの高さを取得
-			var height = $(window).height();
+			var height = $(document).height();
 			//ターゲットまでスクロールするとフェードインする
 			if (scroll > target - height){
 				//クラスを付与

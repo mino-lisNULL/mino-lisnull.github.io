@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="utf-8"/>
+    <title>☆神経衰弱ゲーム☆</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      button {
+        display: block;
+        margin: 20px 0 20px 20px;
+      }
+
+      .card {
+        padding: 3px 0px;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+
+    <section class="preview">
+    </section>
+
+    <div class="cards">
+      <button class="card" number="n" >^_^</button>
+      <button class="card" number="n" >^_^</button>
+      <button class="card" number="n" >^_^</button>
+      <button class="card" number="n" >^_^</button>
+      <button class="card" number="n" >^_^</button>
+      <button class="card" number="n" >^_^</button>
+      <button class="card" number="n" >^_^</button>
+      <button class="card" number="n" >^_^</button>
+      <button class="card" number="n" >^_^</button>
+      <button class="card" number="n" >^_^</button>
+    </div>
+
+  <script>
+  const button = document.getElementsByTagName('button');
+  const cards = document.querySelectorAll('.card');
+  const card = document.querySelector('.cards');
+  let i = 0;
+  let j = 0;
+  let cardNum = getRandomInt(1, cards.length);
+  let countA = 0;
+  var generated = [];
+  let mekuri_flg = "1枚目";
+  var target1 = 0;
+  var target2 = 0;
+  let ichi_maime = 0;
+  let ni_maime = 0;
+  let openMaisuu = 0;
+  //初期化
+  window.onload = function(){
+// ページ読み込み時に実行したい処理
+  for(i = 0; i < (cards.length / 2); i++){
+      if(i == 0){
+            countA++;
+        cardNum = getRandomInt(1, cards.length);
+            gen();
+      }else{
+            countA++;
+        cardGenerate();
+      }
+            countA++;
+      cardGenerate();
+  }
+}
+//乱数生成
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.round(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+//カード生成
+function cardGenerate(){
+    while(generated.length < countA){
+        cardNum = getRandomInt(1, cards.length);
+        for(j = 0; j < generated.length; j++){
+          if(cardNum == generated[j]){
+            break;
+          }else if(j == generated.length - 1){
+            gen();
+            break;
+          }
+        }
+    }
+}
+function gen(){
+            cards[cardNum - 1].setAttribute("number",i);
+            generated.push(cardNum);
+}
+  //クリック
+  card.addEventListener('click', event =>{
+      if(event.target.innerHTML == "^_^"){
+        if(mekuri_flg == "1枚目"){
+          target1 = event.target;
+          target1.innerHTML = target1.getAttribute("number");
+          ichi_maime = target1.getAttribute("number");
+          mekuri_flg = "2枚目";
+        }else if(mekuri_flg == "2枚目"){
+          target2 = event.target;
+          target2.innerHTML = target2.getAttribute("number");
+          ni_maime = target2.getAttribute("number");
+          if(ichi_maime == ni_maime){
+            openMaisuu += 2;
+            if(openMaisuu == cards.length){
+              for(i = 0; i < cards.length; i++){
+                if(i == cards.length / 2 - 1){
+                  cards[i].innerHTML = "☆Clear☆"
+                }else if(i == cards.length / 2){
+                  cards[i].innerHTML = "☆おめでとう☆"
+                }else{
+                  cards[i].innerHTML = "☆あんたはエライ☆"
+                }
+              }
+            }else{
+              mekuri_flg = "1枚目";
+            }
+          }else{
+            mekuri_flg = "伏せる";
+          }
+        }else if(mekuri_flg == "伏せる"){
+            target1.innerHTML = "^_^";
+            target2.innerHTML = "^_^";
+            mekuri_flg = "1枚目";
+        }
+      }
+    });
+  </script>
+  </body>
+</html>
